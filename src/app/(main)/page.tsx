@@ -12,8 +12,8 @@ export default function Home() {
     <main>
       <Hero></Hero>
       <FeaturedProducts />
-      {/* <Categories></Categories>
-      <TopBrands></TopBrands>
+      <Categories></Categories>
+      {/* <TopBrands></TopBrands>
       <WhyChooseUs />
       <Statistics />
       <Testimonials />
