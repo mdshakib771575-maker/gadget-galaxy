@@ -10,8 +10,8 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 export default function Home() {
   return (
     <main>
-      {/* <Hero></Hero>
-      <FeaturedProducts />
+      <Hero></Hero>
+      {/* <FeaturedProducts />
       <Categories></Categories>
       <TopBrands></TopBrands>
       <WhyChooseUs />
