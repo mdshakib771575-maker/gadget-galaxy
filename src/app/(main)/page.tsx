@@ -15,8 +15,8 @@ export default function Home() {
       <Categories></Categories>
       <TopBrands></TopBrands>
       <WhyChooseUs />
-      {/* <Statistics />
-      <Testimonials />
+      <Statistics />
+      {/* <Testimonials />
        <Newsletter /> */}
     </main>
   );
