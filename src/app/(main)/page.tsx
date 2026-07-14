@@ -13,8 +13,8 @@ export default function Home() {
       <Hero></Hero>
       <FeaturedProducts />
       <Categories></Categories>
-      {/* <TopBrands></TopBrands>
-      <WhyChooseUs />
+      <TopBrands></TopBrands>
+      {/* <WhyChooseUs />
       <Statistics />
       <Testimonials />
        <Newsletter /> */}
