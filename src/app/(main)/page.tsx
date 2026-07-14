@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main>
       <Hero></Hero>
-      {/* <FeaturedProducts />
-      <Categories></Categories>
+      <FeaturedProducts />
+      {/* <Categories></Categories>
       <TopBrands></TopBrands>
       <WhyChooseUs />
       <Statistics />
