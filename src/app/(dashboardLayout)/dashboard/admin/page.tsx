@@ -1,8 +1,9 @@
 "use client"
 
 import DashboardHeading from '@/app/components/shared/DashboardHeading';
+import { getUsers } from '@/lib/api/products/data';
 import { Button, Card } from '@heroui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCalendarAlt, FaCrown, FaDollarSign, FaUsers } from 'react-icons/fa';
 import {
     ResponsiveContainer,
@@ -21,6 +22,13 @@ import {
     YAxis,
     CartesianGrid,
 } from "recharts";
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: "admin" | "user";
+ 
+}
 
 const AdminOverViewPage = () => {
     const stats = {
@@ -51,12 +59,23 @@ const AdminOverViewPage = () => {
         { name: "Smart Watches", value: 15 },
     ];
     const COLORS = ["#22c55e", "#3b82f6", "#f59e0b", "#ec4899"];
+
+      const [users, setUsers] = useState<User[]>([]);
+    
+    useEffect(() => {
+      const loadUsers = async () => {
+        const data = await getUsers();
+        setUsers(data);
+      };
+    
+      loadUsers();
+    }, []);
     return (
         <div className="space-y-6 mt-2 ">
             <DashboardHeading title="Overview" description="Dashboard Overview"></DashboardHeading>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-                <Card className="glass border-white/5">
-                    <div className="p-6 flex flex-row items-center justify-between shadow rounded-2xl">
+                <Card className="glass border-white/5 ">
+                    <div className="p-6 flex flex-row items-center justify-between  rounded-2xl">
                         <div className="space-y-1">
                             <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Total Hosted Product</span>
                             <h2 className="text-3xl font-extrabold">{stats.totalHostedProducts}</h2>
@@ -65,17 +84,17 @@ const AdminOverViewPage = () => {
                     </div>
                 </Card>
                 <Card className="glass border-white/5">
-                    <div className="p-6 flex flex-row items-center justify-between shadow rounded-2xl">
+                    <div className="p-6 flex flex-row items-center justify-between  rounded-2xl">
                         <div className="space-y-1">
                             <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Total User</span>
                             <h2 className="text-3xl font-extrabold ">
-                                {stats.totalUsers}</h2>
+                                {users.length}</h2>
                         </div>
                         <div className="p-3.5 bg-indigo-500/10 text-indigo-400 rounded-2xl border border-indigo-500/20"><FaUsers size={24} /></div>
                     </div>
                 </Card>
                 <Card className="glass border-white/5">
-                    <div className="p-6 flex flex-row items-center justify-between shadow rounded-2xl">
+                    <div className="p-6 flex flex-row items-center justify-between  rounded-2xl">
                         <div className="space-y-1">
                             <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Accumulated Revenue</span>
                             <h2 className="text-3xl font-extrabold ">{`$${stats.totalRevenue.toFixed(2)}`}</h2>

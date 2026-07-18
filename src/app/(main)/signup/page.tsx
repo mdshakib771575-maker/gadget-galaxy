@@ -69,7 +69,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <Card className="w-full max-w-lg border border-white/5 bg-slate-950/70 backdrop-blur-xl shadow-2xl p-4 mx-auto">
+    <Card className="w-full max-w-lg border border-white/5 bg-slate-950/70 backdrop-blur-xl shadow-2xl p-4 mx-auto ">
       <CardHeader className="flex flex-col items-center gap-1 pb-6 text-center">
         <Logo />
 
@@ -88,7 +88,7 @@ export default function RegisterPage() {
           className="w-full space-y-4"
         >
           {/* Name */}
-          <div className="w-full">
+          <div className="w-full ">
             <label className="mb-2 block">Full Name</label>
 
             <Input
@@ -96,7 +96,7 @@ export default function RegisterPage() {
                 required: "Name is Required",
               })}
               placeholder="John Doe"
-             className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+             className="w-full bg-slate-900/50 border-white/10 text-white hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.name && (
@@ -116,7 +116,7 @@ export default function RegisterPage() {
               })}
               type="email"
               placeholder="john@example.com"
-              className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+              className="w-full bg-slate-900/50 border-white/10   text-white hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.email && (
@@ -136,7 +136,7 @@ export default function RegisterPage() {
               })}
               type="file"
               accept="image/*"
-              className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+              className="w-full bg-slate-900/50 border-white/10 text-white hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.image && (
@@ -164,7 +164,7 @@ export default function RegisterPage() {
               })}
               type="password"
               placeholder="********"
-               className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+               className="w-full bg-slate-900/50 border-white/10 text-white hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.password && (

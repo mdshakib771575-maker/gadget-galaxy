@@ -90,7 +90,7 @@ const LoginPage = () => {
               id="email"
               type="email"
               placeholder="john@example.com"
-              className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+              className="w-full bg-slate-900/50 text-white border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.email && (
@@ -116,7 +116,7 @@ const LoginPage = () => {
               id="password"
               type="password"
               placeholder="********"
-           className="w-full bg-slate-900/50 border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
+           className="w-full bg-slate-900/50 text-white border-white/10 hover:border-green-500/50 focus-within:!border-pink-500 hover:cursor-pointer border p-2 rounded-xl"
             />
 
             {errors.password && (

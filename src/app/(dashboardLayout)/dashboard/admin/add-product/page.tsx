@@ -1,7 +1,6 @@
 "use client";
-
-
 import DashboardHeading from "@/app/components/shared/DashboardHeading";
+import { addProduct } from "@/lib/api/products/action";
 import { uploadImage } from "@/utils/UploadImage";
 import {
   Button,
@@ -14,7 +13,7 @@ import {
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-type ProductFormData = {
+interface ProductFormData {
   name: string;
   brand: string;
   category: string;
@@ -23,6 +22,18 @@ type ProductFormData = {
   image: FileList;
   description: string;
 };
+
+interface ProductData {
+  name: string;
+  brand: string;
+  category: string;
+  price: number;
+  stock: number;
+  image: string;
+  description: string;
+}
+
+
 
 const CATEGORIES = [
   "Smartphone",
@@ -45,7 +56,11 @@ const AddProductPage = () => {
       const imageFile = data.image[0];
       const imageUrl = await uploadImage(imageFile);
 
-      const productData = {
+      if (!imageUrl) {
+  throw new Error("Image upload failed!");
+}
+
+      const productData:ProductData = {
         name: data.name,
         brand: data.brand,
         category: data.category,
@@ -53,12 +68,16 @@ const AddProductPage = () => {
         stock: Number(data.stock),
         image: imageUrl,
         description: data.description,
-        createdAt: new Date(),
+
       };
 
-      console.log(productData);
+      const result = await addProduct(productData);
 
-      toast.success("Product Added Successfully!");
+      // console.log(result);
+       if(result.insertedId){
+
+         toast.success("Product Added Successfully!");
+      }
     } catch (error) {
       toast.error("Something went wrong!");
       console.log(error);
@@ -225,8 +244,8 @@ const AddProductPage = () => {
                     required: "Description is required",
                   })}
                   placeholder="Write product details here..."
-                  className={'border h-30 p-2 rounded-xl'}   
-                
+                  className={'border h-30 p-2 rounded-xl'}
+
                 />
 
                 {errors.description && (
@@ -239,8 +258,8 @@ const AddProductPage = () => {
               {/* Button */}
               <Button
                 type="submit"
-               
-                className="h-12 w-full bg-gradient-to-r from-blue-500 to-green-500 font-semibold text-white rounded-lg"
+
+                className="h-12 w-full bg-gradient-to-r from-blue-500 to-green-500 font-semibold text-white rounded-lg hover:cursor-pointer"
               >
                 Add Product
               </Button>

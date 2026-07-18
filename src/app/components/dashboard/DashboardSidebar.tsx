@@ -17,7 +17,7 @@ const DashboardSidebar = () => {
 
 
     const AdminMenu = [
-        { key: "overview", label: "Overview", icon: FaUsers, href: "/dashboard" },
+        { key: "overview", label: "Overview", icon: FaUsers, href: "/dashboard/admin" },
     
         { key: "add-product", label: "Add Product", icon: FaPlus, href: "/dashboard/admin/add-product" },
         { key: "manage-products", label: "Manage Products", icon: FaCalendarAlt, href: "/dashboard/admin/manage-products" },
