@@ -1,73 +1,13 @@
+
 import ProductCard from "../products/ProductCard";
+import { Product } from "@/types/product";
+import { serverFetch } from "@/lib/api/server";
+import Link from "next/link";
 
-const products = [
-  {
-    id: 1,
-    name: "iPhone 16 Pro Max",
-    brand: "Apple",
-    price: 1599,
-    rating: 4.9,
-    image: "/images/products/lap.avif",
-  },
-  {
-    id: 2,
-    name: "Galaxy S25 Ultra",
-    brand: "Samsung",
-    price: 1399,
-    rating: 4.8,
-    image: "/images/products/ear.avif",
-  },
-  {
-    id: 3,
-    name: "MacBook Pro M4",
-    brand: "Apple",
-    price: 2499,
-    rating: 5.0,
-    image: "/images/products/17.avif",
-  },
-  {
-    id: 4,
-    name: "ROG Zephyrus G16",
-    brand: "ASUS",
-    price: 2199,
-    rating: 4.8,
-    image: "/images/products/gadget.avif",
-  },
-  {
-    id: 5,
-    name: "Sony WH-1000XM6",
-    brand: "Sony",
-    price: 499,
-    rating: 4.9,
-    image: "/images/products/gd.avif",
-  },
-  {
-    id: 6,
-    name: "Apple Watch Ultra 2",
-    brand: "Apple",
-    price: 899,
-    rating: 4.9,
-    image: "/images/products/lap.avif",
-  },
-  {
-    id: 7,
-    name: "iPad Pro M4",
-    brand: "Apple",
-    price: 1299,
-    rating: 4.8,
-    image: "/images/products/ear.avif",
-  },
-  {
-    id: 8,
-    name: "Logitech MX Master 3S",
-    brand: "Logitech",
-    price: 149,
-    rating: 4.7,
-    image: "/images/products/ear.avif",
-  },
-];
+export default async function FeaturedProducts() {
+  const featuredProducts: Product[] = await serverFetch("/products?limit=8");
+  console.log(featuredProducts)
 
-export default function FeaturedProducts() {
   return (
     <section className="bg-slate-950 py-20">
       <div className="mx-auto max-w-7xl px-6">
@@ -89,19 +29,22 @@ export default function FeaturedProducts() {
 
         {/* Products */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
+          {featuredProducts.data.map((product:Product) => (
             <ProductCard
-              key={product.id}
-              {...product}
+              key={product._id}
+              product={product}
             />
           ))}
         </div>
 
         {/* Button */}
         <div className="mt-14 text-center">
-          <button className="rounded-xl bg-gradient-to-r from-blue-500 to-green-500 px-8 py-4 font-semibold text-white transition hover:scale-105">
+          <Link
+            href="/products"
+            className="rounded-xl bg-gradient-to-r from-blue-500 to-green-500 px-8 py-4 font-semibold text-white transition hover:scale-105 inline-block"
+          >
             View All Products
-          </button>
+          </Link>
         </div>
       </div>
     </section>

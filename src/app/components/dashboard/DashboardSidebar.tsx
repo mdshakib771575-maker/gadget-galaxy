@@ -25,7 +25,7 @@ const DashboardSidebar = () => {
     ];
 
     const UserMenu = [
-        { key: "overview", label: "Overview", icon: FaUserCircle, href: "/dashboard" },
+        { key: "overview", label: "Overview", icon: FaUserCircle, href: "/dashboard/user" },
         { key: " My Orders", label: "My Orders", icon: FaCalendarAlt, href: "/dashboard/user/my-orders" },
         { key: "Wishlist", label: "Wishlist", icon: FaHeart, href: "/dashboard/user/wishlist" },
         

@@ -7,13 +7,13 @@ const categories = [
   {
     id: 1,
     title: "Smartphones",
-    image: "/images/categories/phone.png",
+    image: "/images/categories/camera.avif",
     products: "120+ Products",
   },
   {
     id: 2,
     title: "Laptops",
-    image: "/images/categories/laptop.png",
+    image: "/images/categories/camera.avif",
     products: "80+ Products",
   },
   {
@@ -25,19 +25,19 @@ const categories = [
   {
     id: 4,
     title: "Accessories",
-    image: "/images/categories/headphone.png",
+    image: "/images/categories/camera.avif",
     products: "150+ Products",
   },
   {
     id: 5,
     title: "Gaming",
-    image: "/images/categories/gaming.png",
+    image: "/images/categories/camera.avif",
     products: "45+ Products",
   },
   {
     id: 6,
     title: "Tablets",
-    image: "/images/categories/tablet.png",
+    image: "/images/categories/camera.avif",
     products: "40+ Products",
   },
 ];

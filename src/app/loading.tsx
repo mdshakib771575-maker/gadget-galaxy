@@ -4,7 +4,7 @@ import React from 'react';
 const loading = () => {
     return (
     <div className="flex h-screen items-center justify-center">
-    <Spinner color="current" size="xl" />
+    <Spinner  color="success"size="xl" />
     </div>
   );
 };

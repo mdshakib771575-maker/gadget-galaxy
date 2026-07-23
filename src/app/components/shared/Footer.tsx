@@ -19,7 +19,7 @@ export default function Footer() {
               <Si9Gag className="text-lg" />
             </div>
 
-            <span className="bg-gradient-to-r from-white via-slate-200 to-green-500 bg-clip-text text-lg font-extrabold tracking-tight text-transparent">
+            <span className="bg-gradient-to-r from-white via-white-200 to-green-500 bg-clip-text text-lg font-extrabold tracking-tight text-transparent">
               Gadget Galaxy
             </span>
           </Link>

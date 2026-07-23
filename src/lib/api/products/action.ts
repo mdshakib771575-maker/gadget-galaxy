@@ -10,9 +10,19 @@ interface ProductData {
   image: string;
   description: string;
 }
+interface OrderData {
+  productId: string;
+  productName: string;
+  productImage: string;
+  productPrice: number;
 
+  userName: string;
+  userEmail: string;
+
+  quantity: number;
+  totalPrice: number;
+}
 export const addProduct = async (data:ProductData)=>{
-    console.log("data",data)
     const resData = await serverMutation("/api/add-product","POST",data);
     
     return resData; 
@@ -39,4 +49,12 @@ export const updateProduct = async (id: string,data: ProductData) => {
 
 export const deleteUser = async (id: string) => {
   return await serverMutation(`/api/users/${id}`, "DELETE");
+};
+
+
+export const addOrder = async (data:OrderData)=>{
+  
+    const resData = await serverMutation("/api/orders","POST",data);
+    
+    return resData; 
 };

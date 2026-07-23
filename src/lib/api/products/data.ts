@@ -7,10 +7,14 @@ export const getProducts = async () => {
 };
 
 
-
-
 export const getUsers = async () => {
   const res = await serverFetch("/api/users");
+
+  return res;
+};
+
+export const getAllProduct = async () => {
+  const res = await serverFetch("/api/all-products");
 
   return res;
 };
