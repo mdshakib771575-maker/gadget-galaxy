@@ -1,5 +1,6 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
+import { jwt } from "better-auth/plugins";
 import { MongoClient } from "mongodb";
 
 const client = new MongoClient(process.env.MONGODB_URI!);
@@ -25,5 +26,13 @@ export const auth = betterAuth({
     },
   },
 },
+session: {
+      cookieCache: {
+        enabled: true,
+        strategy: "jwt",
+        maxAge: 60 * 24 * 60,
+      },
+    },
+    plugins: [jwt()],
 
 });
